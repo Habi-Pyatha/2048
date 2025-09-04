@@ -189,10 +189,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  document.addEventListener("touchStart", (e) => {
+  document.addEventListener("touchstart", (e) => {
     touchStartX = e.changedTouches[0].screenX;
     touchStartY = e.changedTouches[0].screenY;
-    handleSwipe();
+  });
+  document.addEventListener('touchend', e => {
+      touchEndX = e.changedTouches[0].screenX;
+      touchEndY = e.changedTouches[0].screenY;
+      handleSwipe();
   });
 
   newGameButton.addEventListener("click", () => {
